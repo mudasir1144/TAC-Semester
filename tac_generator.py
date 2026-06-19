@@ -9,6 +9,27 @@ def new_temp():
 
 def generate_tac(tokens):
 
+    if len(tokens) == 9 and tokens[2] == "(" and tokens[6] == ")":
+
+        target = tokens[0]
+
+        left = tokens[3]
+        operator = tokens[4]
+        middle = tokens[5]
+
+        final_operator = tokens[7]
+        right = tokens[8]
+
+        t1 = new_temp()
+        print(f"\n{t1} = {left} {operator} {middle}")
+
+        t2 = new_temp()
+        print(f"{t2} = {t1} {final_operator} {right}")
+
+        print(f"{target} = {t2}")
+
+        return
+    
     if len(tokens) == 7 and tokens[3] in ["+", "-"] and tokens[5] in ["+", "-"]:
 
         target = tokens[0]
