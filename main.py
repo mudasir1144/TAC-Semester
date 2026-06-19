@@ -1,5 +1,5 @@
 from tokenizer import tokenize
-from tac_generator import generate_multiplication_tac
+from tac_generator import generate_tac
 
 
 def main():
@@ -11,7 +11,9 @@ def main():
     print("\nTokens:")
     print(tokens)
 
-    generate_multiplication_tac(tokens)
+    print("\nThree Address Code:")
+
+    generate_tac(tokens)
 
 
 if __name__ == "__main__":
