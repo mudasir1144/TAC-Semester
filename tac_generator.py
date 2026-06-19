@@ -6,7 +6,7 @@ def new_temp():
     temp_count += 1
     return f"t{temp_count}"
 
-
+# Generate unique temporary variables
 def generate_tac(tokens):
 
     if len(tokens) == 9 and tokens[2] == "(" and tokens[6] == ")":
