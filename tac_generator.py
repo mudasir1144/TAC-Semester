@@ -7,10 +7,10 @@ def new_temp():
     return f"t{temp_count}"
 
 
-def generate_multiplication_tac(tokens):
+def generate_tac(tokens):
 
     if len(tokens) != 5:
-        print("Only expressions like a = b * c are supported")
+        print("Only expressions like a = b * c or a = b / c are supported")
         return
 
     target = tokens[0]
@@ -18,13 +18,13 @@ def generate_multiplication_tac(tokens):
     operator = tokens[3]
     right = tokens[4]
 
-    if operator != "*":
-        print("Only multiplication supported currently")
+    if operator not in ["*", "/"]:
+        print("Only multiplication and division supported currently")
         return
 
     temp = new_temp()
 
     print("\nThree Address Code:\n")
 
-    print(f"{temp} = {left} * {right}")
+    print(f"{temp} = {left} {operator} {right}")
     print(f"{target} = {temp}")
