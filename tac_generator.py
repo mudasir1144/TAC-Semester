@@ -9,28 +9,39 @@ def new_temp():
 
 def generate_tac(tokens):
 
-    if len(tokens) != 5:
-        print("Only expressions like a = b * c are supported")
-        return
+    if len(tokens) == 7 and tokens[3] in ["+", "-"] and tokens[5] in ["+", "-"]:
 
-    target = tokens[0]
+        target = tokens[0]
 
-    left_operand = tokens[2]
-    plus_operator = tokens[3]
+        left = tokens[2]
+        op1 = tokens[3]
+        middle = tokens[4]
+        op2 = tokens[5]
+        right = tokens[6]
 
-    middle_operand = tokens[4]
-    multiply_operator = tokens[5]
-    right_operand = tokens[6]
+        t1 = new_temp()
+        print(f"\n{t1} = {left} {op1} {middle}")
 
-    if operator != "*":
-        print("Only multiplication supported currently")
-        return
+        t2 = new_temp()
+        print(f"{t2} = {t1} {op2} {right}")
 
-    t1 = new_temp()
-    print(f"\n{t1} = {middle_operand} * {right_operand}")
+        print(f"{target} = {t2}")
 
-    t2 = new_temp()
-    print(f"{t2} = {left_operand} + {t1}")
+    elif len(tokens) == 7 and tokens[3] == "+" and tokens[5] == "*":
 
-    print(f"{temp} = {left} * {right}")
-    print(f"{target} = {temp}")
+        target = tokens[0]
+
+        left = tokens[2]
+        middle = tokens[4]
+        right = tokens[6]
+
+        t1 = new_temp()
+        print(f"\n{t1} = {middle} * {right}")
+
+        t2 = new_temp()
+        print(f"{t2} = {left} + {t1}")
+
+        print(f"{target} = {t2}")
+
+    else:
+        print("Expression not supported in current version")
