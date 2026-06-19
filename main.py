@@ -11,7 +11,7 @@ def main():
     print("\nTokens:")
     print(tokens)
 
-    generate_tac(tokens)
+    generate_multiplication_tac(tokens)
 
 
 if __name__ == "__main__":
